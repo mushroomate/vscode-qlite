@@ -50,6 +50,7 @@ body {
   border-radius: 50%;
   margin: var(--avatar-margin);
   border: var(--avatar-border-width) solid;
+  display: none; /* todo<!> 这里能改成开关最好。 */
 }
 
 /* 消息主体 */
@@ -108,7 +109,8 @@ body {
   padding: 4px 6px;
   line-height: 20px;
   white-space: pre-wrap;
-  border-radius: calc(2 * var(--button-icon-corner-radius));
+  /* border-radius: calc(2 * var(--button-icon-corner-radius)); */
+  border-radius: 0;
   border: 1px solid var(--vscode-input-border);
   background-color: var(--vscode-input-background);
 }
