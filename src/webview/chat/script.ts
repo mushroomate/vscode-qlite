@@ -60,6 +60,7 @@ const sendButton = inputBox.querySelector('.send') as webviewUiToolkit.Button;
 /** 用户的基本信息 */
 export let user: chat.UserInfo;
 
+// * 这里存在 bug 历史消息请求判断有问题。 会错误将历史消息当作新消息抓取。 并且不管有没有拉取完所有消息，都会只拉取一条
 /** 请求历史消息的状态，避免重复请求 */
 let requestHistoryState = false;
 
@@ -96,6 +97,7 @@ function getChatHistory(
         // 按发言时间逆序排列
         history.sort((a, b) => b.time - a.time);
         resolve(history);
+        // todo <<<<<<<<<<<<<<<<<<<< 要检查这里的序列
         requestHistoryState = false;
       });
   });
